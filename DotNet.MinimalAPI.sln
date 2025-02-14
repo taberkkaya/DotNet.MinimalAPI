@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Intro", "1.Intro", "{28021902-2D96-4B0D-A0CE-4B904DC94F98}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.GettingStarted", "2.GettingStarted", "{EB68C056-749D-45D7-ACDF-70B616AFB728}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.API", "2.GettingStarted\Minimal.API\Minimal.API.csproj", "{D14C5E65-67D7-4505-8E9C-B770627F3212}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.LetsBuild", "3.LetsBuild", "{8DD2DCC6-33B3-402D-9CEE-03309F575CC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.API", "3.LetsBuild\Library.API\Library.API.csproj", "{537172C2-8E0B-44C7-B9DE-1A87B5D65A37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,10 @@ Global
 		{D14C5E65-67D7-4505-8E9C-B770627F3212}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D14C5E65-67D7-4505-8E9C-B770627F3212}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D14C5E65-67D7-4505-8E9C-B770627F3212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{537172C2-8E0B-44C7-B9DE-1A87B5D65A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{537172C2-8E0B-44C7-B9DE-1A87B5D65A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{537172C2-8E0B-44C7-B9DE-1A87B5D65A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{537172C2-8E0B-44C7-B9DE-1A87B5D65A37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +47,6 @@ Global
 		{51F50370-CCB5-4493-BF1E-905679F3B594} = {28021902-2D96-4B0D-A0CE-4B904DC94F98}
 		{B13593FA-6F79-4079-9CED-3ED5545356A3} = {28021902-2D96-4B0D-A0CE-4B904DC94F98}
 		{D14C5E65-67D7-4505-8E9C-B770627F3212} = {EB68C056-749D-45D7-ACDF-70B616AFB728}
+		{537172C2-8E0B-44C7-B9DE-1A87B5D65A37} = {8DD2DCC6-33B3-402D-9CEE-03309F575CC7}
 	EndGlobalSection
 EndGlobal

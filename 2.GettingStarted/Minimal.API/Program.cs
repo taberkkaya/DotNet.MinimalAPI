@@ -1,15 +1,27 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Minimal.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//service registration starts here
+
 builder.Services.AddScoped<PeopleService>();
 builder.Services.AddScoped<GuidGenerator>();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddControllers();
+
+//service registration stops here
+
 var app = builder.Build();
 
-//app.Urls.Add("https://localhost:7777");
-//app.Urls.Add("http://localhost:8888");
+//Middleware registration starts here
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapGet("get-example",() => "Hello from GET");
 app.MapPost("post-example",() => "Hello from POST");
@@ -73,5 +85,62 @@ app.MapPost("people", (Person person) =>
 {
     return Results.Ok(person);
 });
+
+app.MapGet("httpContext", async context =>
+{
+    await context.Response.WriteAsync("Hello from the httpContext");
+});
+
+app.MapGet("http", async (HttpRequest request, HttpResponse response) =>
+{
+    var queryString = request.QueryString;
+    await response.WriteAsync($"Hello from the http, query string is : {queryString}");
+});
+
+app.MapGet("claims", (ClaimsPrincipal user) =>
+{
+    var claims = user.Claims.ToList();
+    return Results.Ok(claims);
+});
+
+app.MapGet("cancel", (CancellationToken cancellationToken) =>
+{
+    return Results.Ok();
+});
+
+app.MapGet("get-point", (MapPoint point) => //localhost:7101?point=10.55,1.555);
+{
+    return Results.Ok(point);
+});
+
+
+app.MapPost("post-point", (MapPoint point) =>
+{
+    return Results.Ok(point);
+});
+
+app.MapGet("simple-string", () => "Hello World");
+
+app.MapGet("json-raw-obj", () => new {Message = "Hello World"});
+
+app.MapGet("ok-obj", () => Results.Ok(new { Message = "Hello World" }));
+
+app.MapGet("json-obj", () => Results.Json(new { Message = "Hello World" }));
+
+app.MapGet("text-string", () => Results.Text("Hello World"));
+
+app.MapGet("redirect", () => Results.Redirect("https://google.com"));
+
+app.MapGet("download", () => Results.File("./myfile.txt"));
+
+app.MapGet("logging", (ILogger<Program> logger) =>
+{
+    logger.LogInformation("Hello from endpoint");
+    return Results.Ok();
+});
+
+app.MapControllers();
+
+//Middleware registration stops here
 
 app.Run();
